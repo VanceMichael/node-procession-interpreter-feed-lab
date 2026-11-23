@@ -1,12 +1,16 @@
 id: 3
 event: segment
-data: {"feed": "F2", "epoch": "before", "tick": 40, "programme": "P3", "sentence": "S1", "url": "/audio/b1.wav", "until": 60}
+data: {"feed": "F2", "epoch": "before", "tick": 40, "programme": "P3", "sentence": "S1", "url": "/audio/b1.wav", "until": 60, "endTick": 46}
 
 id: 4
 event: switch
-data: {"zone": "村廊", "fromEpoch": "old", "toEpoch": "after", "start": 46, "end": 48, "match": "S1"}
+data: {"zone": "村廊", "feed": "F2", "fromEpoch": "before", "toEpoch": "after", "start": 46, "end": 48, "match": "S1"}
 
 id: 5
 event: segment
-data: {"feed": "F2", "epoch": "after", "tick": 40, "programme": "P3", "sentence": "S2", "url": "/audio/b2.wav", "until": 65}
+data: {"feed": "F2", "epoch": "after", "tick": 40, "endTick": 42, "programme": "P3", "sentence": "S1", "url": "/audio/b3.wav", "until": 65}
+
+id: 6
+event: segment
+data: {"feed": "F2", "epoch": "after", "tick": 42, "endTick": 47, "programme": "P3", "sentence": "S2", "url": "/audio/b2.wav", "until": 65}
 

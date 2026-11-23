@@ -1,7 +1,8 @@
 {
   "phases": [
     "first",
-    "change"
+    "change",
+    "late"
   ],
   "routes": [
     {
@@ -19,34 +20,6 @@
       "phase": "change",
       "file": "after.sse",
       "mime": "text/event-stream"
-    },
-    {
-      "path": "/mixer/clocks",
-      "method": "GET",
-      "status": 200,
-      "data": [
-        {
-          "feed": "F1",
-          "epoch": "old",
-          "tick": 40,
-          "desk": 42,
-          "zone": "河口"
-        },
-        {
-          "feed": "F2",
-          "epoch": "before",
-          "tick": 40,
-          "desk": 42,
-          "zone": "村廊"
-        },
-        {
-          "feed": "F2",
-          "epoch": "after",
-          "tick": 40,
-          "desk": 47,
-          "zone": "村廊"
-        }
-      ]
     },
     {
       "path": "/interpretation",
@@ -69,27 +42,10 @@
           "programme": "P3",
           "sentence": "S2",
           "zone": "村廊",
-          "fromTime": 47,
+          "fromTime": 49,
           "toTime": 52,
           "ver": 1,
           "text": "新队列进入长廊。"
-        }
-      ]
-    },
-    {
-      "path": "/interpretation",
-      "method": "GET",
-      "status": 200,
-      "data": [
-        {
-          "leaf": "I3",
-          "programme": "P3",
-          "sentence": "S1",
-          "zone": "村廊",
-          "fromTime": 41,
-          "toTime": 47,
-          "ver": 1,
-          "text": "队伍通过村口。"
         }
       ]
     },
@@ -121,6 +77,185 @@
       ]
     },
     {
+      "path": "/terminal/switch",
+      "method": "POST",
+      "status": 202,
+      "phase": "change",
+      "expectedBody": {
+        "zone": "村廊"
+      },
+      "receipt": {
+        "tag": "M-13",
+        "state": "partial",
+        "confirmed": [
+          "T9"
+        ]
+      }
+    },
+    {
+      "path": "/audio/a1.wav",
+      "method": "GET",
+      "status": 410,
+      "phase": "late",
+      "data": {
+        "reason": "声段超过保留窗"
+      }
+    },
+    {
+      "path": "/audio/b1.wav",
+      "method": "GET",
+      "status": 410,
+      "phase": "late",
+      "data": {
+        "reason": "声段超过保留窗"
+      }
+    },
+    {
+      "path": "/mixer/feed",
+      "method": "GET",
+      "status": 200,
+      "phase": "late",
+      "file": "after.sse",
+      "mime": "text/event-stream"
+    },
+    {
+      "path": "/mixer/now",
+      "method": "GET",
+      "status": 200,
+      "phase": "first",
+      "data": {
+        "desk": 44
+      }
+    },
+    {
+      "path": "/mixer/now",
+      "method": "GET",
+      "status": 200,
+      "phase": "change",
+      "data": {
+        "desk": 51
+      }
+    },
+    {
+      "path": "/mixer/now",
+      "method": "GET",
+      "status": 200,
+      "phase": "late",
+      "data": {
+        "desk": 62
+      }
+    },
+    {
+      "path": "/terminal/seen",
+      "method": "GET",
+      "status": 200,
+      "phase": "late",
+      "data": [
+        {
+          "terminal": "T8",
+          "zone": "河口",
+          "feed": "F1",
+          "epoch": "old",
+          "desk": 51
+        },
+        {
+          "terminal": "T9",
+          "zone": "村廊",
+          "feed": "F2",
+          "epoch": "after",
+          "desk": 53
+        },
+        {
+          "terminal": "T10",
+          "zone": "村廊",
+          "state": "missing"
+        }
+      ]
+    },
+    {
+      "path": "/interpretation",
+      "method": "GET",
+      "status": 200,
+      "phase": "late",
+      "data": [
+        {
+          "leaf": "I3",
+          "programme": "P3",
+          "sentence": "S1",
+          "zone": "村廊",
+          "fromTime": 41,
+          "toTime": 47,
+          "ver": 1,
+          "text": "队伍通过村口。"
+        },
+        {
+          "leaf": "I4",
+          "programme": "P3",
+          "sentence": "S2",
+          "zone": "村廊",
+          "fromTime": 49,
+          "toTime": 52,
+          "ver": 1,
+          "text": "新队列进入长廊。"
+        },
+        {
+          "leaf": "I4",
+          "programme": "P3",
+          "sentence": "S2",
+          "zone": "村廊",
+          "fromTime": 48,
+          "toTime": 53,
+          "ver": 2,
+          "text": "后一队列已到长廊。"
+        }
+      ]
+    },
+    {
+      "path": "/mixer/clocks",
+      "method": "GET",
+      "status": 200,
+      "data": [
+        {
+          "feed": "F1",
+          "epoch": "old",
+          "tick": 40,
+          "desk": 42,
+          "zone": "河口"
+        },
+        {
+          "feed": "F2",
+          "epoch": "before",
+          "tick": 40,
+          "desk": 42,
+          "zone": "村廊"
+        },
+        {
+          "feed": "F2",
+          "epoch": "after",
+          "tick": 40,
+          "desk": 46,
+          "zone": "村廊"
+        }
+      ]
+    },
+    {
+      "path": "/interpretation",
+      "method": "GET",
+      "status": 200,
+      "data": [
+        {
+          "leaf": "I3",
+          "programme": "P3",
+          "sentence": "S1",
+          "zone": "村廊",
+          "fromTime": 41,
+          "toTime": 47,
+          "ver": 1,
+          "text": "队伍通过村口。"
+        }
+      ]
+    },
+    {
       "path": "/terminal/seen",
       "method": "GET",
       "status": 200,
@@ -140,22 +275,6 @@
           "desk": 43
         }
       ]
-    },
-    {
-      "path": "/terminal/switch",
-      "method": "POST",
-      "status": 202,
-      "phase": "change",
-      "expectedBody": {
-        "zone": "村廊"
-      },
-      "receipt": {
-        "tag": "M-13",
-        "state": "partial",
-        "confirmed": [
-          "T9"
-        ]
-      }
     },
     {
       "path": "/terminal/switch",
@@ -189,6 +308,13 @@
       "method": "GET",
       "status": 200,
       "file": "b2.wav",
+      "mime": "audio/wav"
+    },
+    {
+      "path": "/audio/b3.wav",
+      "method": "GET",
+      "status": 200,
+      "file": "b3.wav",
       "mime": "audio/wav"
     }
   ]

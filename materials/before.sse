@@ -1,8 +1,8 @@
 id: 2
 event: segment
-data: {"feed": "F1", "epoch": "old", "tick": 40, "programme": "P3", "sentence": "S1", "url": "/audio/a1.wav", "until": 60}
+data: {"feed": "F1", "epoch": "old", "tick": 40, "programme": "P3", "sentence": "S1", "url": "/audio/a1.wav", "until": 60, "endTick": 45}
 
 id: 3
 event: segment
-data: {"feed": "F2", "epoch": "before", "tick": 40, "programme": "P3", "sentence": "S1", "url": "/audio/b1.wav", "until": 60}
+data: {"feed": "F2", "epoch": "before", "tick": 40, "programme": "P3", "sentence": "S1", "url": "/audio/b1.wav", "until": 60, "endTick": 46}
 
