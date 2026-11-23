@@ -1,0 +1,12 @@
+id: 3
+event: segment
+data: {"feed": "F2", "epoch": "before", "tick": 40, "programme": "P3", "sentence": "S1", "url": "/audio/b1.wav", "until": 60}
+
+id: 4
+event: switch
+data: {"zone": "村廊", "fromEpoch": "old", "toEpoch": "after", "start": 46, "end": 48, "match": "S1"}
+
+id: 5
+event: segment
+data: {"feed": "F2", "epoch": "after", "tick": 40, "programme": "P3", "sentence": "S2", "url": "/audio/b2.wav", "until": 65}
+

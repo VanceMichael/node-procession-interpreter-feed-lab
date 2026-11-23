@@ -1,0 +1,12 @@
+{
+  "event": "E-20",
+  "zone": [
+    "河口",
+    "村廊"
+  ],
+  "toleranceSeconds": 2,
+  "historyRequests": [
+    "T8",
+    "T9"
+  ]
+}
